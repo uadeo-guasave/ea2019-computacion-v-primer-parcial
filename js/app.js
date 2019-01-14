@@ -1,3 +1,1 @@
-console.log('Hola UAdeO desde JavaScript')
-
-alert('Probando git commit --amend')
+// TODO: mostrar la funcionalidad de js en html

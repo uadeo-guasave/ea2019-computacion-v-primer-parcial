@@ -1,14 +1,1 @@
-h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: brown;
-    text-decoration: underline;
-}
-
-/* Reset CSS */
-html, body, h1, h2, h3, h4, h5, div, p {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-/* Este comentario debe ser el bueno, lo demas que se elimine */
+/* TODO: 3 tipos de reglas CSS y sus propiedades */
