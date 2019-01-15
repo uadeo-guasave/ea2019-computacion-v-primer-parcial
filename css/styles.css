@@ -1,1 +1,6 @@
 /* TODO: 3 tipos de reglas CSS y sus propiedades */
+
+/* Regla 3: Id; se utiliza una vez por archivo */
+#principal { background-color: yellow; }
+#pie { background-color: cyan; }
+#menu { background-color: red; }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,59 @@
     <meta name="keywords" content="html, css, js, uadeo, udo, alumnos, programacion">
     <title>Hola UAdeO</title>
     <!-- TODO: 3 formas de incluir CSS en HTML -->
+    <!-- 2: Document CSS; utiliza la etiqueta style dentro de head -->
+    <style>
+    /* CSS tiene 3 tipos de reglas CSS y sus propiedades */
+    /* Regla 1: Etiqueta */
+        body {
+            /* nombre-propiedad: valor; */
+            background-color: rgb(231, 210, 153);
+        }
+    /* Regla 2: Clase; se puede reutilizar */
+        .negrita { font-weight: bold; }
+        .cursiva { font-style: italic; }
+        .subrayada { text-decoration: underline; }
+        .letra-especial {
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+            font-size: 1.5em;
+        }
+    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <h1>Hola UAdeO</h1>
+    <main id="principal">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iste illo, ex minima, sunt, dolor debitis
+            reprehenderit facere nam velit quod? Eligendi quidem explicabo quae asperiores, optio ex molestiae aliquam?</p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate quasi molestias non, ex nisi magnam quo
+            dolores sapiente suscipit tempora? Neque earum nam beatae hic vitae natus cupiditate deserunt similique.
+        </p>
+    </main>
+    <!-- 1: Inline CSS; utiliza el atributo style de la etiqueta -->
+    <p style="text-align: right;font-style: italic;font-size: 0.8em;">Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ullam dignissimos qui aperiam eos, <span class="letra-especial">dolorem cupiditate
+            possimus autem</span>, quibusdam amet aut facilis quia molestias at enim neque odio fugiat! Quidem,
+        deserunt.</p>
+    <p style="text-align: right;font-style: italic;font-size: 0.8em;">Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ullam dignissimos qui aperiam eos, <span class="negrita subrayada">dolorem cupiditate
+            possimus autem</span>, quibusdam amet aut facilis quia molestias at enim neque odio fugiat! Quidem,
+        deserunt.</p>
+    <p style="text-align: right;font-style: italic;font-size: 0.8em;">Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ullam dignissimos qui aperiam eos, <span class="cursiva subrayada">dolorem cupiditate
+            possimus autem</span>, quibusdam amet aut facilis quia molestias at enim neque odio fugiat! Quidem,
+        deserunt.</p>
+    <p style="text-align: right;font-style: italic;font-size: 0.8em;">Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ullam dignissimos qui aperiam eos, <span class="negrita">dolorem cupiditate
+            possimus autem</span>, quibusdam amet aut facilis quia molestias at enim neque odio fugiat! Quidem,
+        deserunt.</p>
+    <p style="text-align: right;font-style: italic;font-size: 0.8em;">Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ullam dignissimos qui aperiam eos, <span class="negrita">dolorem cupiditate
+            possimus autem</span>, quibusdam amet aut facilis quia molestias at enim neque odio fugiat! Quidem,
+        deserunt.</p>
 </body>
+
 </html>
