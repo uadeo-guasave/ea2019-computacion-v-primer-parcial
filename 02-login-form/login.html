@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div id="login-form">
+    <div class="container text-center">
+        <img src="#" alt="logo" width="100" height="100">
+        <h3>Inicio de sesión</h3>
+    </div>
+    <div id="login-form" class="container form-border">
         <form action="#">
             <label for="TxtUsuario">Usuario:</label>
             <input type="text" name="TxtUsuario" id="TxtUsuario">
@@ -21,8 +26,10 @@
             </label>
             <a href="#">¿Olvidaste tu contraseña?</a>
             <input type="submit" value="Iniciar sesión">
-            <a href="#">Crea una cuenta nueva aquí.</a>
         </form>
+    </div>
+    <div class="container form-border text-center">
+        <a href="#">Crea una cuenta nueva aquí.</a>
     </div>
 </body>
 </html>
