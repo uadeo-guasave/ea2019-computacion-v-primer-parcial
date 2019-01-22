@@ -3,6 +3,7 @@
     /* width: 320px;
     margin-left: auto;
     margin-right: auto; */
+    box-sizing: border-box;
 }
 
 .container {
@@ -30,3 +31,18 @@ body {
 .text-center {
     text-align: center;
 }
+
+.form-control {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type=text].form-control, input[type=password].form-control, button.form-control  {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* button.form-control {
+    box-sizing: border-box;
+    width: 100%;
+} */
