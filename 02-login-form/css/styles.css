@@ -1,8 +1,5 @@
 /* Diseño o presentación */
 #login-form {
-    /* width: 320px;
-    margin-left: auto;
-    margin-right: auto; */
     box-sizing: border-box;
 }
 
@@ -10,14 +7,12 @@
     width: 320px;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 .form-border {
     padding: 20px;
     border: 1px solid gray;
-    /* border-width: 1px;
-    border-style: solid;
-    border-color: gray; */
     border-radius: 10px;
     background-color: #fff;
     margin-bottom: 20px;
@@ -33,16 +28,41 @@ body {
 }
 
 .form-control {
-    display: block;
+    /* display: block; */
     margin-bottom: 10px;
 }
 
-input[type=text].form-control, input[type=password].form-control, button.form-control  {
-    box-sizing: border-box;
-    width: 100%;
+.form-control label {
+    display: block;
+    font-weight: bold;
 }
 
-/* button.form-control {
+.form-control input[type=text], .form-control input[type=password] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    /* padding: top right bottom left; */
+    /* padding: top right-left bottom; */
+    /* padding: top-bottom right-left; */
+    /* padding: all; */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+button.form-control {
+    width: 100%;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+/* input[type=text].form-control, input[type=password].form-control, button.form-control  {
     box-sizing: border-box;
     width: 100%;
 } */
