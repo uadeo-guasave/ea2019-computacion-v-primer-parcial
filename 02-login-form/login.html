@@ -17,12 +17,12 @@
     <div id="login-form" class="container form-border">
         <form action="#">
             <div class="form-control">
-                <label for="TxtUsuario">Usuario:</label>
-                <input type="text" name="TxtUsuario" id="TxtUsuario">
+                <label for="txtUsuario">Usuario:</label>
+                <input type="text" name="txtUsuario" id="txtUsuario" required>
             </div>
             <div class="form-control">
-                <label for="TxtContrasena">Contraseña:</label>
-                <input type="password" name="TxtContrasena" id="TxtContrasena">
+                <label for="txtContrasena">Contraseña:</label>
+                <input type="password" name="txtContrasena" id="txtContrasena" required>
             </div>
             <div class="form-control small">
                 <label for="ChkRecordar">
@@ -31,6 +31,7 @@
                 </label>
             </div>
             <button type="submit" class="form-control">Iniciar sesión</button>
+            <!-- #login-form>form>button[type=submit] -->
             <hr>
             <a href="#" class="text-center small">¿Olvidaste tu contraseña?</a>
         </form>
@@ -38,5 +39,6 @@
     <div class="container form-border text-center">
         <a href="#">Crea una cuenta nueva aquí.</a>
     </div>
+    <script src="js/app.js"></script>
 </body>
 </html>
