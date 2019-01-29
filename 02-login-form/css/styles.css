@@ -66,3 +66,13 @@ button.form-control {
     box-sizing: border-box;
     width: 100%;
 } */
+
+.form-control-error {
+    border-color: red;
+    box-shadow: 0 0 3px red;
+}
+
+.form-control-success {
+    border-color: darkgreen !important;
+    box-shadow: 0 0 3px darkgreen !important;
+}
