@@ -14,10 +14,10 @@ namespace _04_OOP_Console_App
             alumno.Apellidos = "Aragon";
             Console.WriteLine("Id: " + alumno.Id + ", Nombre: " + alumno.NombreCompleto);
 
-            var otro = Alumno.NuevoAlumno();
-            otro.Nombre = "Juan";
-            otro.Apellidos = "Gomez";
-            Console.WriteLine("Id: " + otro.Id + ", Nombre: " + otro.NombreCompleto);
+            // var otro = Alumno.NuevoAlumno();
+            // otro.Nombre = "Juan";
+            // otro.Apellidos = "Gomez";
+            // Console.WriteLine("Id: " + otro.Id + ", Nombre: " + otro.NombreCompleto);
 
             var ultimo = new Alumno()
             {

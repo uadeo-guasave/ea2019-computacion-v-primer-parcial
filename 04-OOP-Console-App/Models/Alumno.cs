@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace _04_OOP_Console_App.Models
 {
@@ -9,16 +10,23 @@ namespace _04_OOP_Console_App.Models
         public int Id { get; set; }
         [Required, MaxLength(10)]
         public string Matricula { get; set; }
-        [Required]
+        [Required, MaxLength(50)]
         public string Nombre { get; set; }
-        [Required]
+        [Required, MaxLength(50)]
         public string Apellidos { get; set; }
+        [Required, MaxLength(200)]
         public string CorreoElectronico { get; set; }
-        public Carrera Carrera { get; set; }
+        [Required]
         public Genero Genero { get; set; }
+        [Required]
+        public int CarreraId { get; set; }
+        
+        
+        public Carrera Carrera { get; set; }
         public List<Calificacion> Calificiones { get; set; }
 
 
+        [NotMapped]
         public string NombreCompleto
         {
             get { return Nombre + " " + Apellidos; }
