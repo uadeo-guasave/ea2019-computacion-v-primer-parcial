@@ -23,7 +23,7 @@ namespace _04_OOP_Console_App.Models
         
         
         public Carrera Carrera { get; set; }
-        public List<Calificacion> Calificiones { get; set; }
+        public List<AlumnoCalificaciones> AlumnoCalificaciones { get; set; }
 
 
         [NotMapped]

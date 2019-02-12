@@ -7,28 +7,33 @@ namespace _04_OOP_Console_App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var alumno = new Alumno();
-            // alumno.Id = 1;
-            alumno.Nombre = "Bidkar";
-            alumno.Apellidos = "Aragon";
-            Console.WriteLine("Id: " + alumno.Id + ", Nombre: " + alumno.NombreCompleto);
-
-            // var otro = Alumno.NuevoAlumno();
-            // otro.Nombre = "Juan";
-            // otro.Apellidos = "Gomez";
-            // Console.WriteLine("Id: " + otro.Id + ", Nombre: " + otro.NombreCompleto);
-
-            var ultimo = new Alumno()
+            using (var db = new UdoDbContext())
             {
-                Nombre = "Ultimo",
-                Apellidos = "Alumno",
-                Matricula = "9730035",
-                CorreoElectronico = "baragon@udo.mx"
-            };
-            Console.WriteLine("Id: " + ultimo.Id + ", Nombre: " + ultimo.NombreCompleto);
+                db.Database.EnsureCreated();
 
+                var carrera = new Carrera
+                {
+                    Id = 1,
+                    Nombre = "Sistemas Computacionales",
+                    Plan = Plan.Trimestral
+                };
 
+                var alumno = new Alumno
+                {
+                    Nombre = "Bidkar",
+                    Apellidos = "Aragon",
+                    CorreoElectronico = "bidkar.aragon@udo.mx",
+                    Matricula = "9730035",
+                    Genero = Genero.Hombre,
+                    CarreraId = 1
+                };
+
+                db.Add(carrera);
+
+                db.SaveChanges();
+                Console.WriteLine("Datos guardados");
+                Console.ReadLine();
+            }
         }
     }
 }

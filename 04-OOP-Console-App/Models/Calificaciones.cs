@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace _04_OOP_Console_App.Models
@@ -23,6 +24,7 @@ namespace _04_OOP_Console_App.Models
         public Alumno Alumno { get; set; }
         public Docente Docente { get; set; }
         public Materia Materia { get; set; }
+        public List<AlumnoCalificaciones> AlumnoCalificaciones { get; set; }
     }
 
     public enum Periodo
