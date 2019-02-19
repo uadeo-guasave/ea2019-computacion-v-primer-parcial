@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _04_OOP_Console_App.Models;
 
 namespace _04_OOP_Console_App
@@ -7,34 +8,71 @@ namespace _04_OOP_Console_App
     {
         static void Main(string[] args)
         {
+            // CrearCarreras();
+            // ImprimirCarreras();
+            // TODO: ActualizarCarrera(int id);
+            // TODO: EliminarCarrera(int id);
+        }
+
+        private static void ImprimirCarreras()
+        {
             using (var db = new UdoDbContext())
             {
-                db.Database.EnsureDeleted();
+                var carreras = db.Carreras;
+                foreach (var c in carreras)
+                {
+                    Console.WriteLine($"Nombre: {c.Nombre}, Plan: {c.Plan}");
+                }
+            }
+        }
+
+        private static void CrearCarreras()
+        {
+            using (var db = new UdoDbContext())
+            {
                 db.Database.EnsureCreated();
 
-                var carrera = new Carrera
+                var carreras = new List<Carrera>
                 {
-                    Id = 1,
-                    Nombre = "Sistemas Computacionales",
-                    Plan = Plan.Trimestral
+                    new Carrera()
+                    {
+                        Nombre = "Contabilidad",
+                        Plan = Plan.Trimestral
+                    },
+                    new Carrera()
+                    {
+                        Nombre = "Administración y finanzas",
+                        Plan = Plan.Semestral
+                    },
+                    new Carrera()
+                    {
+                        Nombre = "Ingeniería civil",
+                        Plan = Plan.Trimestral
+                    }
                 };
+                // var carrera1 = new Carrera()
+                // {
+                //     Nombre = "Contabilidad",
+                //     Plan = Plan.Trimestral
+                // };
+                // var carrera2 = new Carrera()
+                // {
+                //     Nombre = "Administración y finanzas",
+                //     Plan = Plan.Semestral
+                // };
+                // var carrera3 = new Carrera()
+                // {
+                //     Nombre = "Ingeniería civil",
+                //     Plan = Plan.Trimestral
+                // };
 
-                var alumno = new Alumno
-                {
-                    Nombre = "Bidkar",
-                    Apellidos = "Aragon",
-                    CorreoElectronico = "bidkar.aragon@udo.mx",
-                    Matricula = "9730035",
-                    Genero = Genero.Hombre,
-                    CarreraId = 1
-                };
+                // db.Add(carrera1);
+                // db.Add(carrera2);
+                // db.Add(carrera3);
 
-                db.Add(carrera);
-                db.Add(alumno);
+                db.AddRange(carreras);
 
                 db.SaveChanges();
-                Console.WriteLine("Datos guardados");
-                Console.ReadLine();
             }
         }
     }
