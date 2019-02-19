@@ -9,6 +9,7 @@ namespace _04_OOP_Console_App
         {
             using (var db = new UdoDbContext())
             {
+                db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
 
                 var carrera = new Carrera
@@ -29,6 +30,7 @@ namespace _04_OOP_Console_App
                 };
 
                 db.Add(carrera);
+                db.Add(alumno);
 
                 db.SaveChanges();
                 Console.WriteLine("Datos guardados");

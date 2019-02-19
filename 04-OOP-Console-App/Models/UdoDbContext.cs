@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace _04_OOP_Console_App.Models
@@ -28,10 +29,21 @@ namespace _04_OOP_Console_App.Models
                 
                 alumno.HasMany(a => a.AlumnoCalificaciones)
                       .WithOne(ac => ac.Alumno);
+                
+                alumno.Property(a => a.Genero)
+                    .HasConversion(
+                        g => g.ToString(),
+                        g => (Genero)Enum.Parse(typeof(Genero), g)
+                    );
             });
 
             modelBuilder.Entity<Carrera>(carrera => {
                 carrera.HasIndex(c => new { c.Nombre, c.Plan }).IsUnique();
+                carrera.Property(c => c.Plan)
+                       .HasConversion(
+                           p => p.ToString(),
+                           p => (Plan)Enum.Parse(typeof(Plan), p)
+                       );
 
                 carrera.HasMany(c => c.Materias).WithOne(m => m.Carrera);
                 carrera.HasMany(c => c.Alumnos).WithOne(a => a.Carrera);
@@ -51,6 +63,12 @@ namespace _04_OOP_Console_App.Models
                 cal.HasIndex(c => new { c.AlumnoId, c.DocenteId, c.MateriaId, c.Periodo }).IsUnique();
 
                 cal.HasMany(c => c.AlumnoCalificaciones).WithOne(ac => ac.Calificacion);
+
+                cal.Property(c => c.Periodo)
+                   .HasConversion(
+                       p => p.ToString(),
+                       p => (Periodo)Enum.Parse(typeof(Periodo), p)
+                   );
             });
             
             modelBuilder.Entity<AlumnoCalificaciones>(alucal => {
