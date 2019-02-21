@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _04_OOP_Console_App.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace _04_OOP_Console_App
 {
@@ -8,14 +9,23 @@ namespace _04_OOP_Console_App
     {
         static void Main(string[] args)
         {
-            // CrearCarreras();
-            // ImprimirCarreras();
-            var carrera = BuscarCarreraPorId(3);
-            // carrera.Plan = Plan.Trimestral;
-            // TODO: ActualizarCarrera(int id);
-            // ActualizarCarrera(carrera);
-            // TODO: EliminarCarrera(int id);
-            EliminarCarrera(carrera);
+            // TODO: PrimerParcial
+            // Mostrar todas las calificaciones de todos los periodos del alumno con id 1
+            // Deberá incluir en la lista a mostrar, el nombre del alumno, docente, materia,
+            // carrera y las calificaciones. Para antes de la siguiente clase.
+            // nombrar al commit como PrimerParcial EFCore
+        }
+
+        private static void MostrarAlumnosCarreras()
+        {
+            using (var db = new UdoDbContext())
+            {
+                var alumnos = db.Alumnos.Include(a => a.Carrera);
+                foreach (var alumno in alumnos)
+                {
+                    Console.WriteLine($"Alumno: {alumno.NombreCompleto}, Carrera: {alumno.Carrera.Nombre}");
+                }
+            }
         }
 
         private static void EliminarCarrera(Carrera carrera)
