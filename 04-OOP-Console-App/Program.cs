@@ -10,8 +10,41 @@ namespace _04_OOP_Console_App
         {
             // CrearCarreras();
             // ImprimirCarreras();
+            var carrera = BuscarCarreraPorId(3);
+            // carrera.Plan = Plan.Trimestral;
             // TODO: ActualizarCarrera(int id);
+            // ActualizarCarrera(carrera);
             // TODO: EliminarCarrera(int id);
+            EliminarCarrera(carrera);
+        }
+
+        private static void EliminarCarrera(Carrera carrera)
+        {
+            using (var db = new UdoDbContext())
+            {
+                db.Carreras.Remove(carrera);
+                db.SaveChanges();
+                ImprimirCarreras();
+            }
+        }
+
+        private static void ActualizarCarrera(Carrera carrera)
+        {
+            using (var db = new UdoDbContext())
+            {
+                db.Carreras.Update(carrera);
+                db.SaveChanges();
+                ImprimirCarreras();
+            }
+        }
+
+        private static Carrera BuscarCarreraPorId(int carreraId)
+        {
+            using (var db = new UdoDbContext())
+            {
+                var carrera = db.Carreras.Find(carreraId);
+                return carrera;
+            }
         }
 
         private static void ImprimirCarreras()
