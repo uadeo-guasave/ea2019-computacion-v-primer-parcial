@@ -29,3 +29,38 @@ values
     ('2019-02-21',1,1,1,10,'Parcial1'),
     ('2019-03-21',1,1,1,10,'Parcial2'),
     ('2019-04-21',1,1,1,10,'Parcial3');
+
+select r.nombre 'carrera',
+       a.nombre || a.apellidos 'alumno',
+       d.nombre 'docente',
+       m.nombre 'materia',
+       c.periodo,
+       c.nota
+  from calificaciones c
+  join alumnos a
+    on c.alumnoid = a.id
+  join carreras r
+    on a.carreraid = r.id
+  join materias m
+    on c.materiaid = m.id
+  join docentes d
+    on c.docenteid = d.id;
+
+
+select r.nombre 'carrera',
+       a.nombre || a.apellidos 'alumno',
+       d.nombre 'docente',
+       m.nombre 'materia',
+       case c.periodo
+       when "parcial1" then c.nota
+       end 'parcial1'
+  from calificaciones c
+  join alumnos a
+    on c.alumnoid = a.id
+  join carreras r
+    on a.carreraid = r.id
+  join materias m
+    on c.materiaid = m.id
+  join docentes d
+    on c.docenteid = d.id
+ group by c.alumnoid, c.materiaid;

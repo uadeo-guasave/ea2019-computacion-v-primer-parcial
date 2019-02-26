@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _04_OOP_Console_App.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,26 @@ namespace _04_OOP_Console_App
             // Deberá incluir en la lista a mostrar, el nombre del alumno, docente, materia,
             // carrera y las calificaciones. Para antes de la siguiente clase.
             // nombrar al commit como PrimerParcial EFCore
+            PrimerParcial();
+        }
+
+        private static void PrimerParcial()
+        {
+            using (var db = new UdoDbContext())
+            {
+                var calificaciones = db.Calificaciones
+                                        .Include(c => c.Alumno)
+                                            .ThenInclude(c => c.Carrera)
+                                        .Include(c => c.Docente)
+                                        .Include(c => c.Materia)
+                                        .Where(c => c.AlumnoId == 1)
+                                        .ToList();
+
+                foreach (var cal in calificaciones)
+                {
+                    Console.WriteLine($"Carrera: {cal.Alumno.Carrera.Nombre}, Alumno: {cal.Alumno.NombreCompleto}, Docente: {cal.Docente.Nombre}, Materia: {cal.Materia.Nombre}, {cal.Periodo}: {cal.Nota}");
+                }
+            }
         }
 
         private static void MostrarAlumnosCarreras()
