@@ -12,9 +12,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>UAdeO</td>
-            <td>Guasave, Sin.</td>
-        </tr>
+        @foreach (var escuela in Model)
+        {
+            <tr>
+                <td><a href="/Escuela/Detalle/@escuela.Id">@escuela.Nombre</a></td>
+                <td>@escuela.Ubicación</td>
+            </tr>
+        }
     </tbody>
 </table>

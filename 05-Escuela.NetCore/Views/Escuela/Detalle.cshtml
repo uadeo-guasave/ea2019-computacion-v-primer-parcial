@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Detalle de escuela";
+}
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Director(a)</th>
+    </tr>
+    <tr>
+        @if (Model != null)
+        {
+            <td>@Model.Nombre</td>
+            <td>@Model.Ubicación</td>
+            <td>@Model.Director</td>
+        }
+    </tr>
+</table>
+<a href="/Escuela/Index">Regresar...</a>
