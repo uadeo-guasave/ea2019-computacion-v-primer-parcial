@@ -17,10 +17,13 @@ namespace _05_Escuela.NetCore.Controllers
             return View(escuelas);
         }
 
-        public IActionResult Detalle(int EscuelaId)
+        // CRUD: Create Read Update Delete
+        // HTTP: POST=Create Get=Read Put=Update Delete=Delete
+        [HttpGet("/Escuela/Detalle/{id}")]
+        public IActionResult Detalle(int id)
         {
             Escuela escuela;
-            if (EscuelaId == 1)
+            if (id == 1)
             {
                 escuela = new Escuela {Id=1,Nombre="UAdeO",Ubicación="Guasave, Sinaloa",Director="Fridzia Izaguirre Diaz de León"};
             }
