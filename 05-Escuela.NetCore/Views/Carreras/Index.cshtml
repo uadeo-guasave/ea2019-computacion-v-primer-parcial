@@ -1,0 +1,12 @@
+@{
+    ViewData["title"] = "Carreras";
+}
+
+@foreach (var carrera in Model)
+{
+    <p>
+        Id: @carrera.Id
+        Nombre: @carrera.Nombre
+        Plan: @carrera.Plan
+    </p>
+}
