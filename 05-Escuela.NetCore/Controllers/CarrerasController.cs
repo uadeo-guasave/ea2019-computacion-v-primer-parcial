@@ -15,5 +15,33 @@ namespace _05_Escuela.NetCore.Controllers
                 return View(carreras);
             }
         }
+
+        public IActionResult Nueva()
+        {
+            return View();
+        }
+
+        [HttpGet("/Carreras/Editar/{carreraId}")]
+        public IActionResult Editar(int carreraId)
+        {
+            using (var db = new SqliteDbContext())
+            {
+                var carrera = db.Carreras.Find(carreraId);
+                return View(carrera);
+            }
+        }
+
+        [HttpGet("/Carreras/Eliminar/{carreraId}")]
+        public IActionResult Eliminar(int carreraId)
+        {
+            using (var db = new SqliteDbContext())
+            {
+                var carrera = db.Carreras.Find(carreraId);
+                db.Remove(carrera);
+                db.SaveChanges();
+
+                return View("Index", carrera.Nombre);
+            }
+        }
     }
 }

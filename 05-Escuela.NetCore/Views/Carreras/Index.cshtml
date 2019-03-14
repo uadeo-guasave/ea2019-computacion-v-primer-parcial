@@ -2,11 +2,30 @@
     ViewData["title"] = "Carreras";
 }
 
-@foreach (var carrera in Model)
-{
-    <p>
-        Id: @carrera.Id
-        Nombre: @carrera.Nombre
-        Plan: @carrera.Plan
-    </p>
-}
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Carrera</th>
+            <th>Plan</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var carrera in Model)
+        {
+            <tr>
+                <td>@carrera.Nombre</td>
+                <td>@carrera.Plan</td>
+                <td>
+                    <a href="/Carreras/Editar/@carrera.Id">
+                       <i class="fas fa-edit" style="color:blue;margin:0 5px;"></i>
+                    </a>
+                    <a href="/Carreras/Eliminar/@carrera.Id">
+                       <i class="fas fa-trash-alt" style="color:red;margin:0 5px;"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
