@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Editar carrera";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="NombreDeCarrera">Nombre de la carrera</label>
+                    <input type="text" name="NombreDeCarrera" id="NombreDeCarrera" class="form-control" value="@Model.Nombre">
+                </div>
+                <div class="form-check">
+                    @if (Model.Plan.ToString() == "Trimestral")
+                    {
+                    <input type="radio" name="Plan" id="PlanT" class="form-check-input" value="Trimestral" checked>
+                    }
+                    else
+                    {
+                    <input type="radio" name="Plan" id="PlanT" class="form-check-input" value="Trimestral">
+                    }
+                    <label for="PlanT" class="form-check-label">
+                        Trimestral
+                    </label>
+                </div>
+                <div class="form-check">
+                    @if(Model.Plan.ToString() == "Semestral")
+                    {
+                    <input type="radio" name="Plan" id="PlanS" class="form-check-input" value="Semestral" checked>
+                    }
+                    else
+                    {
+                    <input type="radio" name="Plan" id="PlanS" class="form-check-input" value="Semestral">
+                    }
+                    <label for="PlanS" class="form-check-label">
+                        Semestral
+                    </label>
+                </div>
+                <hr>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

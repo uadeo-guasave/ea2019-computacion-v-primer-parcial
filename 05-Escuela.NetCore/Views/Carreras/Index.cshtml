@@ -1,5 +1,17 @@
 @{
     ViewData["title"] = "Carreras";
+    List<Carrera> carreras = null;
+    if (Model == null)
+    {
+        using (var db = new SqliteDbContext())
+        {
+            carreras = db.Carreras.ToList();
+        }
+    }
+    else
+    {
+        carreras = Model;
+    }
 }
 
 
@@ -12,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var carrera in Model)
+        @foreach (var carrera in carreras)
         {
             <tr>
                 <td>@carrera.Nombre</td>

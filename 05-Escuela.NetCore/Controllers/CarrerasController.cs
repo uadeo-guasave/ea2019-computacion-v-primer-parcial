@@ -8,12 +8,7 @@ namespace _05_Escuela.NetCore.Controllers
     {
         public IActionResult Index()
         {
-            using (var db = new SqliteDbContext())
-            {
-                var carreras = db.Carreras.ToList();
-                
-                return View(carreras);
-            }
+            return View();
         }
 
         public IActionResult Nueva()
@@ -40,7 +35,7 @@ namespace _05_Escuela.NetCore.Controllers
                 db.Remove(carrera);
                 db.SaveChanges();
 
-                return View("Index", carrera.Nombre);
+                return View("Index");
             }
         }
     }
