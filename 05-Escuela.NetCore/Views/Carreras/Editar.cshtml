@@ -5,7 +5,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <form>
+            <form method="post" action="/Carreras/GuardarCambios">
+                <input type="hidden" name="CarreraId" value="@Model.Id">
                 <div class="form-group">
                     <label for="NombreDeCarrera">Nombre de la carrera</label>
                     <input type="text" name="NombreDeCarrera" id="NombreDeCarrera" class="form-control" value="@Model.Nombre">
@@ -38,6 +39,9 @@
                 </div>
                 <hr>
                 <button class="btn btn-primary" type="submit">Guardar</button>
+                <a asp-controller="Carreras" asp-action="Index" class="btn btn-secondary">
+                    Cancelar
+                </a>
             </form>
         </div>
     </div>

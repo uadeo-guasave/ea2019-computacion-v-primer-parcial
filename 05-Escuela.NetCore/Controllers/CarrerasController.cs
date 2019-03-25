@@ -26,6 +26,17 @@ namespace _05_Escuela.NetCore.Controllers
             }
         }
 
+        [HttpPost("/Carreras/GuardarCambios")]
+        public IActionResult GuardarCambios()
+        {
+            using (var db = new SqliteDbContext())
+            {
+                var carrera = db.Carreras.Find();
+                
+                return View(carrera);
+            }
+        }
+
         [HttpGet("/Carreras/Eliminar/{carreraId}")]
         public IActionResult Eliminar(int carreraId)
         {
