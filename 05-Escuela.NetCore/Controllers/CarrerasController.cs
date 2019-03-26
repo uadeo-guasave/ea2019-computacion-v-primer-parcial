@@ -11,40 +11,65 @@ namespace _05_Escuela.NetCore.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Nueva()
         {
             return View();
         }
 
-        [HttpGet("/Carreras/Editar/{carreraId}")]
-        public IActionResult Editar(int carreraId)
+        [HttpPost]
+        public IActionResult Nueva(Carrera carrera)
         {
             using (var db = new SqliteDbContext())
             {
-                var carrera = db.Carreras.Find(carreraId);
-                return View(carrera);
-            }
-        }
-
-        [HttpPost("/Carreras/GuardarCambios")]
-        public IActionResult GuardarCambios()
-        {
-            using (var db = new SqliteDbContext())
-            {
-                var carrera = db.Carreras.Find();
+                if (ModelState.IsValid)
+                {
+                    db.Add(carrera);
+                    db.SaveChanges();
+                }
                 
+                return View("Index");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            using (var db = new SqliteDbContext())
+            {
+                var carrera = db.Carreras.Find(id);
                 return View(carrera);
             }
         }
 
-        [HttpGet("/Carreras/Eliminar/{carreraId}")]
-        public IActionResult Eliminar(int carreraId)
+        [HttpPost]
+        public IActionResult Editar(int id, Carrera carreraInput)
         {
             using (var db = new SqliteDbContext())
             {
-                var carrera = db.Carreras.Find(carreraId);
-                db.Remove(carrera);
-                db.SaveChanges();
+                var carrera = db.Carreras.Find(id);
+                if (carrera != null && ModelState.IsValid)
+                {
+                    carrera.Nombre = carreraInput.Nombre;
+                    carrera.Plan = carreraInput.Plan;
+                    db.SaveChanges();
+                }
+                
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Eliminar(int id)
+        {
+            using (var db = new SqliteDbContext())
+            {
+                var carrera = db.Carreras.Find(id);
+                if (carrera != null)
+                {
+                    db.Remove(carrera);
+                    db.SaveChanges();
+                }
 
                 return View("Index");
             }

@@ -6,7 +6,7 @@ namespace _05_Escuela.NetCore.Models
     {
         public int Id { get; set; }
         
-        [Required]
+        [Required, MaxLength(100)]
         public string Nombre { get; set; }
         
         [Required]
