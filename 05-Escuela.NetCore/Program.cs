@@ -23,6 +23,7 @@ namespace _05_Escuela.NetCore
         {
             using (var db = new SqliteDbContext())
             {
+                db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
             }
         }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace _05_Escuela.NetCore.Models
@@ -11,6 +12,7 @@ namespace _05_Escuela.NetCore.Models
         
         [Required]
         public Plan Plan { get; set; }
+        public List<Alumno> Alumnos { get; set; }
     }
 
     public enum Plan

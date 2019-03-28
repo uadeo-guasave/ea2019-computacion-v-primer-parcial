@@ -1,0 +1,9 @@
+@model List<Alumno>
+@{
+  ViewData["Title"] = "Lista de alumnos registrados";
+}
+
+@foreach (var alumno in Model)
+{
+    <p>@alumno.NombreCompleto</p>
+}
